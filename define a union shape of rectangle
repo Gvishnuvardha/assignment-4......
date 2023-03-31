@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+typedef struct {
+    float radius;
+    float length;
+    float width;
+} shape;
+
+int main() {
+    shape s;
+    char choice;
+
+    printf("Enter shape (c for circle, r for rectangle): ");
+    scanf("%c", &choice);
+
+    if (choice == 'c') {
+        printf("Enter radius of circle: ");
+        scanf("%f", &s.radius);
+        printf("Area of circle: %f\n", 3.14 * s.radius * s.radius);
+    } else if (choice == 'r') {
+        printf("Enter length and width of rectangle: ");
+        scanf("%f %f", &s.length, &s.width);
+        printf("Area of rectangle: %f\n", s.length * s.width);
+    } else {
+        printf("Invalid choice\n");
+    }
+
+    return 0;
+}
