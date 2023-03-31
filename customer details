@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_CUSTOMERS 3
+
+// Define a structure to store customer details
+struct Customer {
+    int account_no;
+    char name[50];
+    float balance;
+};
+
+// Function to print the account no. and name of each customer whose balance < 100 Rs
+void print_low_balance_customers(struct Customer customers[], int num_customers) {
+    printf("List of customers with balance less than 100 Rs:\n");
+    for (int i = 0; i < num_customers; i++) {
+        if (customers[i].balance < 100.0) {
+            printf("Account No: %d, Name: %s\n", customers[i].account_no, customers[i].name);
+        }
+    }
+}
+
+int main() {
+    // Declare an array of customer structures
+    struct Customer customers[MAX_CUSTOMERS];
+
+    // Accept customer details from the user
+    for (int i = 0; i < MAX_CUSTOMERS; i++) {
+        printf("Enter details for customer %d:\n", i+1);
+        printf("Account No: ");
+        scanf("%d", &customers[i].account_no);
+        printf("Name: ");
+        scanf("%s", customers[i].name);
+        printf("Balance: ");
+        scanf("%f", &customers[i].balance);
+    }
+
+    // Call the function to print low balance customers
+    print_low_balance_customers(customers, MAX_CUSTOMERS);
+
+    return 0;
+}
